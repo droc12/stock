@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      width: 800px;  /* 减小宽度 */
+      padding: 12px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      margin: 0;
+      background-color: #f8f9fa;
+      min-width: 800px;  /* 确保最小宽度 */
+      overflow-x: hidden; /* 防止水平滚动 */
+    }
+    .header {
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 14px;  /* 减小字体 */
+      color: #1a73e8;
+    }
+    .stocks-container {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;  /* 减小间距 */
+    }
+    .stock-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);  /* 4列布局 */
+      gap: 6px;  /* 减小间距 */
+    }
+    .company-group {
+      background: white;
+      border-radius: 6px;  /* 减小圆角 */
+      padding: 6px;  /* 减小内边距 */
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+    .company-name {
+      font-size: 12px;  /* 减小字体 */
+      font-weight: 600;
+      color: #1a73e8;
+      margin-bottom: 4px;
+      padding-bottom: 2px;
+      border-bottom: 1px solid #e8f0fe;
+    }
+    .stocks-row {
+      display: grid;
+      gap: 4px;  /* 减小间距 */
+    }
+    .stock-card {
+      padding: 4px;  /* 减小内边距 */
+      background-color: #f8f9fa;
+      border-radius: 4px;
+    }
+    .stock-header {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      margin-bottom: 2px;
+    }
+    .stock-name {
+      font-size: 11px;  /* 减小字体 */
+      font-weight: 500;
+    }
+    .market-tag {
+      padding: 0px 3px;  /* 减小内边距 */
+      border-radius: 2px;
+      font-size: 9px;  /* 减小字体 */
+      font-weight: 500;
+    }
+    .us-market {
+      background-color: #e8f0fe;
+      color: #1a73e8;
+    }
+    .hk-market {
+      background-color: #fce8e6;
+      color: #ea4335;
+    }
+    .stock-symbol {
+      color: #5f6368;
+      font-size: 9px;  /* 减小字体 */
+      margin: 1px 0;
+    }
+    .price {
+      color: #202124;
+      font-size: 12px;  /* 减小字体 */
+      font-weight: 600;
+      margin: 2px 0;
+    }
+    .change {
+      font-size: 9px;  /* 减小字体 */
+      font-weight: 500;
+      border-radius: 2px;
+      padding: 0px 3px;
+      display: inline-block;
+      margin-bottom: 2px;
+    }
+    .market-cap {
+      font-size: 9px;  /* 减小字体 */
+      color: #5f6368;
+      margin-top: 2px;
+    }
+    .positive {
+      background-color: #ffebee;
+      color: #d32f2f;
+    }
+    .negative {
+      background-color: #e8f5e9;
+      color: #2e7d32;
+    }
+    .refresh-btn {
+      width: 100%;
+      padding: 6px;  /* 减小内边距 */
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;  /* 减小字体 */
+      font-weight: 500;
+      margin-top: 6px;
+      transition: background-color 0.2s;
+    }
+    .refresh-btn:hover {
+      background-color: #1557b0;
+    }
+    .update-time {
+      text-align: center;
+      color: #5f6368;
+      font-size: 9px;  /* 减小字体 */
+      margin-top: 4px;
+    }
+    .loading, .error {
+      text-align: center;
+      padding: 12px;
+      font-size: 12px;  /* 减小字体 */
+      color: #5f6368;
+    }
+    .error {
+      color: #ea4335;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>科技股行情</h1>
+  </div>
+  <div id="stockContainer" class="stocks-container"></div>
+  <button id="refreshBtn" class="refresh-btn">刷新数据</button>
+  <div id="updateTime" class="update-time"></div>
+  <script src="popup.js"></script>
+</body>
+</html>
